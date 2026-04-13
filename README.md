@@ -10,3 +10,12 @@ Le système repose sur quatre piliers d'automatisation :
 - Régulation Thermique : Ventilation active pour maintenir une température fraîche (température idéale pour le radis < 22°C).
 
 - Interface Émotionnelle : Affichage OLED/LCD indiquant les constantes (T°/H) et l'état de santé de la plante via des expressions faciales
+
+Matériel requis : 
+
+- Carte Arduino UCA incluant :
+    - Capteur humidité
+    - Thermomètre 
+- Capteur d'humidité dans le sol
+- Servo Moteur
+- Ecran LED 
