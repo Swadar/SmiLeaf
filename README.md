@@ -1,4 +1,4 @@
-# <p align="center">SmiLeaf</p>
+# <p align="center">**SmiLeaf**</p>
 <img width="1379" height="752" alt="SmiLeaf" src="https://github.com/user-attachments/assets/67f4cec5-48b6-4634-bc4e-e0d314f29c69" />
 
 SmiLeaf est un système de serre intelligente automatisée conçue pour optimiser la croissance des semis (particulièrement les radis) en simulant des conditions environnementales idéales grâce à l'informatique embarquée.
