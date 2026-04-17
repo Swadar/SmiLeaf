@@ -1,0 +1,142 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <SHTSensor.h>
+#include <LTR303.h>
+
+// --- Configuration Écran OLED ---
+#define LARGEUR_ECRAN 128
+#define HAUTEUR_ECRAN 64
+Adafruit_SSD1306 display(LARGEUR_ECRAN, HAUTEUR_ECRAN, &Wire, -1);
+
+// --- Objets Capteurs ---
+SHTSensor sht;
+LTR303 light;
+const int soilPin = A0; 
+
+// --- Variables LTR303 ---
+unsigned char gain = 0; 
+unsigned char integrationTime = 0; 
+unsigned char measurementRate = 3; 
+
+// --- Variables de gestion du temps ---
+unsigned long previousMillis = 0;
+const long interval = 5000; // 5 secondes
+bool montrerSmiley = true;
+
+// --- Bitmaps (24x24 pixels) ---
+static const unsigned char PROGMEM img_sourire[] = {
+  0x00, 0x7e, 0x00, 0x03, 0xff, 0xc0, 0x0f, 0x81, 0xf0, 0x1e, 0x00, 0x78,
+  0x38, 0x00, 0x1c, 0x70, 0x00, 0x0e, 0x60, 0x00, 0x06, 0xc0, 0x00, 0x03,
+  0xc6, 0x00, 0x63, 0xc6, 0x00, 0x63, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01,
+  0x80, 0x00, 0x01, 0x87, 0x00, 0xe1, 0x83, 0x81, 0xc1, 0x81, 0xff, 0x81,
+  0xc0, 0xff, 0x03, 0x60, 0x00, 0x06, 0x70, 0x00, 0x0e, 0x38, 0x00, 0x1c,
+  0x1e, 0x00, 0x78, 0x0f, 0x81, 0xf0, 0x03, 0xff, 0xc0, 0x00, 0x7e, 0x00
+};
+
+static const unsigned char PROGMEM img_neutre[] = {
+  0x00, 0x7e, 0x00, 0x03, 0xff, 0xc0, 0x0f, 0x81, 0xf0, 0x1e, 0x00, 0x78,
+  0x38, 0x00, 0x1c, 0x70, 0x00, 0x0e, 0x60, 0x00, 0x06, 0xc0, 0x00, 0x03,
+  0xc6, 0x00, 0x63, 0xc6, 0x00, 0x63, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01,
+  0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x81, 0xff, 0x81,
+  0xc1, 0xff, 0x83, 0x60, 0x00, 0x06, 0x70, 0x00, 0x0e, 0x38, 0x00, 0x1c,
+  0x1e, 0x00, 0x78, 0x0f, 0x81, 0xf0, 0x03, 0xff, 0xc0, 0x00, 0x7e, 0x00
+};
+
+static const unsigned char PROGMEM img_triste[] = {
+  0x00, 0x7e, 0x00, 0x03, 0xff, 0xc0, 0x0f, 0x81, 0xf0, 0x1e, 0x00, 0x78,
+  0x38, 0x00, 0x1c, 0x70, 0x00, 0x0e, 0x60, 0x00, 0x06, 0xc0, 0x00, 0x03,
+  0xc6, 0x00, 0x63, 0xc6, 0x00, 0x63, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01,
+  0x80, 0x00, 0x01, 0x83, 0x81, 0xc1, 0x87, 0x00, 0xe1, 0x8c, 0x00, 0x31,
+  0xd8, 0x00, 0x1b, 0x60, 0x00, 0x06, 0x70, 0x00, 0x0e, 0x38, 0x00, 0x1c,
+  0x1e, 0x00, 0x78, 0x0f, 0x81, 0xf0, 0x03, 0xff, 0xc0, 0x00, 0x7e, 0x00
+};
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { for(;;); }
+  display.clearDisplay();
+
+  sht.init();
+
+  if (light.begin()) {
+    light.setControl(gain, false, true);
+    light.setMeasurementRate(integrationTime, measurementRate);
+    light.setPowerUp();
+  }
+}
+
+void loop() {
+  // --- 1. Lecture constante des capteurs ---
+  sht.readSample();
+  float temp = sht.getTemperature();
+
+  unsigned int rawCH0, rawCH1;
+  double lux = 0.0;
+  if (light.getData(rawCH0, rawCH1)) {
+    light.getLux(gain, integrationTime, rawCH0, rawCH1, lux);
+  }
+
+  int rawSoil = analogRead(soilPin);
+  float voltSoil = rawSoil * (3.3 / 1023.0); // Référence 3.3V [cite: 40]
+
+  // --- 2. Gestion de l'alternance d'affichage ---
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+    montrerSmiley = !montrerSmiley; // Alterne entre true et false
+  }
+
+  // --- 3. Dessin sur l'OLED ---
+  display.clearDisplay();
+  display.setTextColor(SSD1306_WHITE);
+
+  if (montrerSmiley) {
+    // --- MODE HUMEUR (SMILEY) ---
+    const unsigned char* bitmap;
+    String message;
+
+    // Logique basée sur le datasheet : Tension haute = SEC [cite: 24, 40]
+    if (voltSoil > 2.1) {
+      bitmap = img_triste; message = "Il faut arroser";
+    } else if (voltSoil > 1.8) {
+      bitmap = img_neutre; message = "Un peu sec";
+    } else {
+      bitmap = img_sourire; message = "Tout va bien !";
+    }
+
+    display.drawBitmap((LARGEUR_ECRAN - 24) / 2, 8, bitmap, 24, 24, SSD1306_WHITE);
+    display.setTextSize(1);
+    int16_t x1, y1; uint16_t w, h;
+    display.getTextBounds(message, 0, 0, &x1, &y1, &w, &h);
+    display.setCursor((LARGEUR_ECRAN - w) / 2, 40);
+    display.println(message);
+    
+    display.setCursor(45, 54);
+    display.print(voltSoil); display.print(" V");
+  } 
+  else {
+    // --- MODE STATION DE MESURE ---
+    display.setTextSize(1);
+    display.setCursor(0, 0);
+    display.println(F("STATION DE MESURE"));
+    display.drawLine(0, 10, 128, 10, SSD1306_WHITE);
+
+    display.setCursor(0, 20);
+    display.setTextSize(2);
+    display.print(temp, 1);
+    display.setTextSize(1);
+    display.println(" C (Temp)");
+
+    display.setCursor(0, 45);
+    display.setTextSize(2);
+    display.print((int)lux);
+    display.setTextSize(1);
+    display.println(" Lux");
+  }
+
+  display.display();
+  delay(100); // Petite pause pour la stabilité
+}
