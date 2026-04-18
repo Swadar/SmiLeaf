@@ -83,9 +83,13 @@ Install libraries
 
 # <p align="center">Les Avancées 📈 :</p> 
 
-| Projet | Techno | Lien |
-| :--- | :---: | :--- |
-| Mon App | 🚀 Vue.js | [Voir](https://...) |
+| **Etapes** | **Contributeurs** | **Etat** |
+| Arrosage intelligent | Nouhai Esteban | [] |
+| Phototropisme artificiel | Kamal Nicolas | [] |
+| Régulation thermique | Kamal Nicolas | [] |
+| Interface émotionnelle | Nouhai Esteban | [] |
+| Conception physique | Nouhai | [] |
+| Page Github | Esteban | [] |
 
 # <p align="center">La Conception ✏️:</p> 
 
