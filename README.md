@@ -21,11 +21,7 @@
 
 - Carte Arduino UCA (fabriquée par RFThings) incluant :
     - <details>
-          <summary>Capteur humidité et de température -> SHTC3</summary>▪ The SHTC3 is a low-cost, easy to use, highly accurate, digital temperature and humidity sensor.
-▪ I2C communication built-in your UCA board
-▪ The sensor covers a humidity measurement range of 0 to 100 %RH
-and a temperature measurement range of - 40 °C to 125 °C with a
-typical accuracy of ±2 %RH and ±0.2°C.
+          <summary>Capteur humidité et de température -> SHTC3</summary>▪ The SHTC3 is a low-cost, easy to use, highly accurate, digital temperature and humidity sensor. <br>▪ I2C communication built-in your UCA board <br>▪ The sensor covers a humidity measurement range of 0 to 100 %RH and a temperature measurement range of - 40 °C to 125 °C with a typical accuracy of ±2 %RH and ±0.2°C.
 </details>
     - Capteur de luminosité -> LTR-303A
 
