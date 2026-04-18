@@ -1,0 +1,106 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <SHTSensor.h>
+#include <LTR303.h> 
+
+
+// Configuration Écran OLED
+#define LARGEUR_ECRAN 128
+#define HAUTEUR_ECRAN 64
+Adafruit_SSD1306 display(LARGEUR_ECRAN, HAUTEUR_ECRAN, &Wire, -1);
+
+
+// Objets Capteurs
+SHTSensor sht;
+LTR303 light;
+
+
+// Variables pour le LTR303
+unsigned char gain = 0;     // Gain 1X (Lumière normale)
+unsigned char integrationTime = 0; // 100ms
+unsigned char measurementRate = 3; // 500ms
+
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+
+
+  // 1. Initialisation Écran
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("OLED non trouve"));
+    for(;;);
+  }
+  display.clearDisplay();
+
+
+  // 2. Initialisation Température (SHT)
+  if (sht.init()) {
+    Serial.println(F("SHT OK"));
+  }
+
+
+  // 3. Initialisation Lumière (LTR303)
+  if (light.begin()) {
+    light.setControl(gain, false, true); // Gain 1X, Mode actif
+    light.setMeasurementRate(integrationTime, measurementRate);
+    light.setPowerUp();
+    Serial.println(F("LTR303 OK"));
+  }
+}
+
+
+void loop() {
+  // --- Lecture Température ---
+  sht.readSample();
+  float temp = sht.getTemperature();
+
+
+  // --- Lecture Lumière (Lux) ---
+  unsigned int rawCH0, rawCH1;
+  double lux = 0.0;
+ 
+  if (light.getData(rawCH0, rawCH1)) {
+    // Calcul du Lux réel avec l'algorithme de la librairie
+    light.getLux(gain, integrationTime, rawCH0, rawCH1, lux);
+  }
+
+
+  // --- Affichage OLED ---
+  display.clearDisplay();
+  display.setTextColor(SSD1306_WHITE);
+ 
+  // En-tête
+  display.setTextSize(1);
+  display.setCursor(0, 0);
+  display.println(F("STATION DE MESURE"));
+  display.drawLine(0, 10, 128, 10, SSD1306_WHITE);
+
+
+  // Affichage Température
+  display.setCursor(0, 20);
+  display.setTextSize(2);
+  display.print(temp, 1);
+  display.setTextSize(1);
+  display.println(" C (Temp)");
+
+
+  // Affichage Luminosité
+  display.setCursor(0, 45);
+  display.setTextSize(2);
+  display.print((int)lux);
+  display.setTextSize(1);
+  display.println(" Lux");
+
+
+  display.display();
+
+
+  // Debug Série
+  Serial.print(F("Temp: ")); Serial.print(temp);
+  Serial.print(F(" | Lux: ")); Serial.println(lux);
+
+
+  delay(1000);
+}
