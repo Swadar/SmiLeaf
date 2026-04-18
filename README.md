@@ -91,6 +91,7 @@ Install libraries
 | Interface émotionnelle | Nouhai Esteban | [ ] | 0% |
 | Conception physique | Nouhai | [ ] | 0% |
 | Page Github | Esteban | [ ] | 0% |
+| Préparation orale | Nouhai Esteban Nico Kamal | [ ] | 0% |
 
 # <p align="center">La Conception ✏️:</p> 
 
