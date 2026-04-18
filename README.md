@@ -59,7 +59,7 @@
 
 * **USB Driver :** <br>
 The board is using CH340C chip for USB. You may need to install the driver to use the board: https://sparks.gogo.co.nz/ch340.html
-<br>
+
 * **Board Programming - Board Manager :** <br>
  1. [Download and install the Arduino IDE](https://www.arduino.cc/en/Main/Software) (at least version v1.6.8)
  2. Start the Arduino IDE
