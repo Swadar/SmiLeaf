@@ -44,5 +44,7 @@
 
 * <details><summary><strong>Servo Moteur -> SG90 9G</strong></summary> <br> ▪ Modulation : Analogique <br> ▪ Force : 4.8V (1.6 kg-cm) <br> ▪ Vitesse : 4.8V (0.1 sec/60°) <br> ▪ Poids : 9g <br> ▪ Dimensions : 23mm x 12.2mm x 29mm <br> ▪ Angle de rotation : 180° <br> ▪ Connectique : Connecteur 3 points
   </details>
+<img width="368" height="368" alt="Servo" src="https://github.com/user-attachments/assets/65685276-d9d7-4c74-b270-fe2b25483cfe" />
+
 - Ecran LED
 
