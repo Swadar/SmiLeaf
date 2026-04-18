@@ -56,7 +56,7 @@
 <br>
 
 # <p align="center">L'installation :</p> 
-<br>
+
 **USB Driver :** 
 <br>
 The board is using CH340C chip for USB. You may need to install the driver to use the board: https://sparks.gogo.co.nz/ch340.html
