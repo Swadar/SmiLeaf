@@ -85,13 +85,13 @@ Install libraries
 
 | **Etapes** | **Contributeurs** | **Etat** | **Etat en %** |
 | :--- | :--- | :---: | :---: |
-| Arrosage intelligent | Nouhai Esteban | [ ] | 50% |
-| Phototropisme artificiel | Kamal Nicolas | [ ] | 25% |
-| Régulation thermique | Kamal Nicolas | [ ] | 25% |
-| Interface émotionnelle | Nouhai Esteban | [x] | 100% |
-| Conception physique | Nouhai | [ ] | 25% |
-| Page Github | Esteban | [ ] | 75% |
-| Préparation orale | Nouhai Esteban Nico Kamal | [ ] | 0% |
+| Arrosage intelligent | Nouhai Esteban | 📈 | 50% |
+| Phototropisme artificiel | Kamal Nicolas | 📈 | 25% |
+| Régulation thermique | Kamal Nicolas | 📈 | 25% |
+| Interface émotionnelle | Nouhai Esteban | ✅ | 100% |
+| Conception physique | Nouhai | 📈 | 25% |
+| Page Github | Esteban | 📈 | 75% |
+| Préparation orale | Nouhai Esteban Nico Kamal | ⌚ | 0% |
 
 # <p align="center">La Conception ✏️:</p> 
 
