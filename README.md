@@ -46,5 +46,7 @@
   </details>
 <img width="368" height="368" alt="Servo" src="https://github.com/user-attachments/assets/65685276-d9d7-4c74-b270-fe2b25483cfe" />
 
-- Ecran LED
+* <details>
+    <summary><strong>Ecran OLED</strong></summary><br> ▪ Taille : 1.3 inch <br> ▪ Résolution : 128  64 <br> ▪ Couleur d'affichage : Bleu <br> ▪ Driver : SSD1106 <br> ▪ Protocole : I2C communication Protocol <br> ▪ Dimensions du panneau : 34.5 * 23.0 * 1.4 (mm) <br> ▪ Zone active :** 29.42 * 14.7 (mm) <br> ▪ Température de fonctionnement : -30°C ~ 70°C <br> ▪ Compatibilité : Arduino (UNO R3), STM, Raspberry Pi, Beagle Bone Black
+  </details>
 
