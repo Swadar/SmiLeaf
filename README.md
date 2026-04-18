@@ -44,15 +44,7 @@
 https://www.cytron.io/p-maker-soil-moisture-sensor
 * <details>
     <summary><strong>Servo Moteur -> SG90 9G</strong></summary>
-    <br>
-
-    * **Modulation :** Analogique
-    * **Force :** 4.8V (1.6 kg-cm)
-    * **Vitesse :** 4.8V (0.1 sec/60°)
-    * **Poids :** 9g
-    * **Dimensions :** 23mm x 12.2mm x 29mm
-    * **Angle de rotation :** 180°
-    * **Connectique :** Connecteur 3 points
+    <br>▪ Modulation : Analogique <br>▪ Force : 4.8V (1.6 kg-cm) <br>▪ Vitesse : 4.8V (0.1 sec/60°) <br>▪ Poids : 9g <br>▪ Dimensions : 23mm x 12.2mm x 29mm <br>▪ Angle de rotation : 180° <br>▪ Connectique : Connecteur 3 points
   </details>
 - Ecran LED
 
