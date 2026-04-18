@@ -20,9 +20,17 @@
 # <p align="center">Le Matériel Requis :</p> 
 
 - Carte Arduino UCA (fabriquée par RFThings) incluant :
-    - Capteur humidité et de température -> SHTC3
+    - <details>
+          <summary>Capteur humidité et de température -> SHTC3</summary>
+▪ The SHTC3 is a low-cost, easy to use, highly accurate, digital
+temperature and humidity sensor.
+▪ I2C communication built-in your UCA board
+▪ The sensor covers a humidity measurement range of 0 to 100 %RH
+and a temperature measurement range of - 40 °C to 125 °C with a
+typical accuracy of ±2 %RH and ±0.2°C.
+  </details>
     - Capteur de luminosité -> LTR-303A
-<br>
+
 <img width="1422" height="796" alt="board1" src="https://github.com/user-attachments/assets/61d95a37-e045-4c48-8715-7e27f906ec91" />
 
 - Capteur d'humidité dans le sol
