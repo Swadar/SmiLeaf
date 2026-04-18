@@ -83,13 +83,14 @@ Install libraries
 
 # <p align="center">Les Avancées 📈 :</p> 
 
-| **Etapes** | **Contributeurs** | **Etat** | Etat en % |
-| Arrosage intelligent | Nouhai Esteban | [] | 0 |
-| Phototropisme artificiel | Kamal Nicolas | [] | 0 |
-| Régulation thermique | Kamal Nicolas | [] | 0 |
-| Interface émotionnelle | Nouhai Esteban | [] | 0 |
-| Conception physique | Nouhai | [] | 0 |
-| Page Github | Esteban | [] | 0 |
+| **Etapes** | **Contributeurs** | **Etat** | **Etat en %** |
+| :--- | :--- | :---: | :---: |
+| Arrosage intelligent | Nouhai Esteban | [ ] | 0% |
+| Phototropisme artificiel | Kamal Nicolas | [ ] | 0% |
+| Régulation thermique | Kamal Nicolas | [ ] | 0% |
+| Interface émotionnelle | Nouhai Esteban | [ ] | 0% |
+| Conception physique | Nouhai | [ ] | 0% |
+| Page Github | Esteban | [ ] | 0% |
 
 # <p align="center">La Conception ✏️:</p> 
 
