@@ -74,6 +74,13 @@ The board is using CH340C chip for USB. You may need to install the driver to us
  5. Select your RFTHings UCA board from the Tools -> Board menu
  6. Select Board version "3.9 and newer : AT328PB" from the Tools -> Board menu
  7. Select the port
+
+* **Libraries :** <br>
+Install libraries 
+ ```
+ https://rfthings.github.io/ArduinoBoardManagerJSON/package_rfthings-avr_index.json
+ ```
+
 # <p align="center">Les Avancées :</p> 
 
 # <p align="center">La Conception :</p> 
