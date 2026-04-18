@@ -1,0 +1,48 @@
+/*
+ * Lecture du Maker Soil Moisture Sensor sur UCA Education Board
+ * Branchement : Port Grove A0/A1
+ */
+
+
+const int sensorPin = A0; // Le signal OUT du capteur est sur A0
+
+
+void setup() {
+  Serial.begin(9600); // Initialise la communication série
+  Serial.println("--- Test du capteur d'humidité Maker Soil ---");
+}
+
+
+void loop() {
+  // 1. Lire la valeur brute (0 à 1023)
+  int rawValue = analogRead(sensorPin);
+
+
+  // 2. Convertir en tension (en supposant que l'Arduino est en 5V)
+  // Si votre carte est alimentée en 3.3V, remplacez 5.0 par 3.3
+  float voltage = rawValue * (5.0 / 1023.0);
+
+
+  // 3. Affichage sur le moniteur série
+  Serial.print("Valeur brute: ");
+  Serial.print(rawValue);
+  Serial.print(" | Tension: ");
+  Serial.print(voltage);
+  Serial.print("V -> ");
+
+
+  // 4. Interprétation selon le datasheet
+  // Note : Plus la tension est haute, plus le sol est SEC.
+  if (voltage > 3.1) {
+    Serial.println("ÉTAT : SEC (DRY)");
+  }
+  else if (voltage > 2.7 && voltage <= 3.1) {
+    Serial.println("ÉTAT : HUMIDE (MOIST)");
+  }
+  else if (voltage <= 2.7) {
+    Serial.println("ÉTAT : TRÈS HUMIDE (WET)");
+  }
+
+
+  delay(1000); // Attendre 1 seconde avant la prochaine mesure
+}
