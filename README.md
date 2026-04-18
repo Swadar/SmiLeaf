@@ -83,7 +83,7 @@ Install libraries
 
 # <p align="center">Les Avancées 📈 :</p> 
 
-| **Etapes** | **Contributeurs** | **Etat** |
+| Etapes | Contributeurs | Etat |
 | Arrosage intelligent | Nouhai Esteban | [] |
 | Phototropisme artificiel | Kamal Nicolas | [] |
 | Régulation thermique | Kamal Nicolas | [] |
