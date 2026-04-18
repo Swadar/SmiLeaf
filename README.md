@@ -37,14 +37,15 @@
 
 <img width="1422" height="796" alt="board1" src="https://github.com/user-attachments/assets/61d95a37-e045-4c48-8715-7e27f906ec91" />
 
-* ### **Capteur d'humidité dans le sol -> MSMS**
-    * **Tension de fonctionnement :** 2.5V - 7.0V
-    * **Sortie :** Tension analogique (Plus d'humidité = tension plus basse)
-    * **Type de sonde :** Capacitive (résistante à la corrosion) et double face (plus sensible)
-    * **Fonctionnalités clés :**
-        * Port Grove pour une connexion facile
-        * Indicateurs LED (sec / humide / mouillé)
-        * Pin de désactivation pour l'économie d'énergie (Power-saving)
+* ### <details> <summary>Capteur d'humidité dans le sol -> MSMS</summary>
+    <br>
+    
+    * **Voltage :** 2.5V - 7.0V  
+    * **Sortie :** Analogique (Inversée)  
+    * **Sonde :** Capacitive & Double face  
+    * **Extras :** Port Grove, LED indicateurs, Mode économie d'énergie
+    
+    </details>
 
 <img width="557" height="491" alt="Capteur humidité" src="https://github.com/user-attachments/assets/079f006c-81a5-42b8-b99d-447b00132030" />
 
