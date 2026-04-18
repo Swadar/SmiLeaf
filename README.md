@@ -19,9 +19,12 @@
 
 # <p align="center">Le Matériel Requis :</p> 
 
-- Carte Arduino UCA incluant :
-    - Capteur humidité
-    - Thermomètre 
+- Carte Arduino UCA (fabriquée par RFThings) incluant :
+    - Capteur humidité et de température -> SHTC3
+    - Capteur de luminosité -> LTR-303A
+<br>
+<img width="1422" height="796" alt="board1" src="https://github.com/user-attachments/assets/61d95a37-e045-4c48-8715-7e27f906ec91" />
+
 - Capteur d'humidité dans le sol
 - Servo Moteur
 - Ecran LED
