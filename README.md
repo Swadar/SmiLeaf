@@ -78,7 +78,7 @@ The board is using CH340C chip for USB. You may need to install the driver to us
 * **Libraries :** <br>
 Install libraries 
  ```
- https://rfthings.github.io/ArduinoBoardManagerJSON/package_rfthings-avr_index.json
+ [https://rfthings.github.io/ArduinoBoardManagerJSON/package_rfthings-avr_index.json](https://github.com/Swadar/SmiLeaf)
  ```
 
 # <p align="center">Les Avancées :</p> 
