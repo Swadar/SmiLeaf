@@ -97,7 +97,8 @@ Install libraries
 
 # <p align="center">Licence :</p> 
 
-Le projet est réalisé dans le cadre de l'UE de communication sans fil du spatial au terrestre. <br> 
+Le projet est réalisé dans le cadre de l'UE de communication sans fil du spatial au terrestre. 
+<br> 
 <img width="1287" height="800" alt="UCA_logo" src="https://github.com/user-attachments/assets/fe5291f9-ba6a-4fd3-a2ac-a5b69e7b7557" />
 
 
