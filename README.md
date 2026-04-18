@@ -43,6 +43,17 @@
 <img width="557" height="491" alt="Capteur humidité" src="https://github.com/user-attachments/assets/079f006c-81a5-42b8-b99d-447b00132030" />
 https://www.cytron.io/p-maker-soil-moisture-sensor
 <br>
-- Servo Moteur
+* <details>
+    <summary><strong>Servo Moteur -> SG90 9G</strong></summary>
+    <br>
+
+    * **Modulation :** Analogique
+    * **Force :** 4.8V (1.6 kg-cm)
+    * **Vitesse :** 4.8V (0.1 sec/60°)
+    * **Poids :** 9g
+    * **Dimensions :** 23mm x 12.2mm x 29mm
+    * **Angle de rotation :** 180°
+    * **Connectique :** Connecteur 3 points
+  </details>
 - Ecran LED
 
