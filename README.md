@@ -45,7 +45,7 @@
     * **Sonde :** Capacitive & Double face  
     * **Extras :** Port Grove, LED indicateurs, Mode économie d'énergie
     
-    </details>
+       </details>
 
 <img width="557" height="491" alt="Capteur humidité" src="https://github.com/user-attachments/assets/079f006c-81a5-42b8-b99d-447b00132030" />
 
