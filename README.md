@@ -15,7 +15,7 @@
 
 - Interface Émotionnelle : Affichage OLED/LCD indiquant les constantes (T°/H) et l'état de santé de la plante via des expressions faciales
 
-Matériel requis : 
+# <p align="center">Le Matériel Requis :</p> 
 
 - Carte Arduino UCA incluant :
     - Capteur humidité
