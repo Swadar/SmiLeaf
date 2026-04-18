@@ -37,7 +37,12 @@
 
 <img width="1422" height="796" alt="board1" src="https://github.com/user-attachments/assets/61d95a37-e045-4c48-8715-7e27f906ec91" />
 
-- Capteur d'humidité dans le sol
+<details>
+  <summary>**- Capteur d'humidité dans le sol -> MSMS**</summary> ▪ Operating Voltage: 2.5V - 7.0V. <br> ▪ Output: Analog Voltage (Higher moisture = lower voltage) <br> ▪ Grove port. <br> ▪ LED indicators for dry/moist/wet soil moisture levels. <br> ▪ Soil Limit (Maximum depth of the probe) <br> ▪ Double-sided probe (More sensitive to moisture changes) <br> ▪ Capacitive sensing probe (Corrosion resistant) <br> ▪ Disable pin (Power-saving application)
+</details>
+
+<img width="557" height="491" alt="Capteur humidité" src="https://github.com/user-attachments/assets/079f006c-81a5-42b8-b99d-447b00132030" />
+
 - Servo Moteur
 - Ecran LED
 
