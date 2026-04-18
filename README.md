@@ -7,7 +7,7 @@
 <p align="center">SmiLeaf est un système de serre intelligente automatisée conçue pour optimiser la croissance des semis (particulièrement les radis) en simulant des conditions environnementales idéales grâce à l'informatique embarquée.</p>
 <br>
 
-# <p align="center">Les Principes :</p>
+# <p align="center">🌠Les Principes :</p>
 
 - **Arrosage Intelligent :** Surveillance de l'humidité du sol pour maintenir un substrat constant, crucial pour éviter que les radis ne deviennent fibreux.
 
@@ -19,7 +19,7 @@
 
 <br>
 
-# <p align="center">Le Matériel Requis :</p> 
+# <p align="center">Le Matériel Requis 🧰 :</p> 
 
 * **Carte Arduino UCA (fabriquée par RFThings) incluant :**
     * <details>
@@ -55,7 +55,7 @@
 
 <br>
 
-# <p align="center">L'installation :</p> 
+# <p align="center">L'installation ⚙️:</p> 
 
 * **USB Driver :** <br>
 The board is using CH340C chip for USB. You may need to install the driver to use the board: https://sparks.gogo.co.nz/ch340.html
@@ -81,7 +81,7 @@ Install libraries
  pi install https://github.com/Swadar/SmiLeaf
  ```
 
-# <p align="center">Les Avancées :</p> 
+# <p align="center">Les Avancées 📈 :</p> 
 
-# <p align="center">La Conception :</p> 
+# <p align="center">La Conception ✏️:</p> 
 
