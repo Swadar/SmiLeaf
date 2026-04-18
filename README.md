@@ -34,14 +34,14 @@
         ▪ I2C communication built-in your UCA board.<br>
         ▪ It provides a linear response over a wide dynamic range from 0.01 lux to 64k lux and is well suited to applications under high ambient brightness.
       </details>
-
+<br>
 <img width="1422" height="796" alt="board1" src="https://github.com/user-attachments/assets/61d95a37-e045-4c48-8715-7e27f906ec91" />
-
+<br>
 *  <details> <summary><strong>Capteur d'humidité dans le sol -> MSMS</strong></summary>  <br> ▪ Voltage : 2.5V - 7.0V <br> ▪ Sortie : Analogique (Inversée) <br> ▪ Sonde : Capacitive & Double face  <br> ▪ Extras : Port Grove, LED indicateurs, Mode économie d'énergie <br> ▪ https://www.cytron.io/p-maker-soil-moisture-sensor
   </details>
-
+<br>
 <img width="557" height="491" alt="Capteur humidité" src="https://github.com/user-attachments/assets/079f006c-81a5-42b8-b99d-447b00132030" />
-
+<br>
 * <details><summary><strong>Servo Moteur -> SG90 9G</strong></summary> <br> ▪ Modulation : Analogique <br> ▪ Force : 4.8V (1.6 kg-cm) <br> ▪ Vitesse : 4.8V (0.1 sec/60°) <br> ▪ Poids : 9g <br> ▪ Dimensions : 23mm x 12.2mm x 29mm <br> ▪ Angle de rotation : 180° <br> ▪ Connectique : Connecteur 3 points
   </details>
 - Ecran LED
