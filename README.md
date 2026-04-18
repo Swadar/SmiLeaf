@@ -42,7 +42,6 @@
 
 <img width="557" height="491" alt="Capteur humidité" src="https://github.com/user-attachments/assets/079f006c-81a5-42b8-b99d-447b00132030" />
 https://www.cytron.io/p-maker-soil-moisture-sensor
-<br>
 * <details>
     <summary><strong>Servo Moteur -> SG90 9G</strong></summary>
     <br>
