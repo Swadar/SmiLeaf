@@ -18,7 +18,8 @@
 3. [L'installation ⚙️](#linstallation-)
 4. [Les Avancées 📈](#les-avancées-)
 5. [La Conception ✏️](#la-conception-)
-6. [Licence](#licence-)
+6. [Galerie de démonstration 📷](#galerie-de-démonstration-)
+7. [Licence](#licence-)
 ---
 
 ## <p align="center">🌠Les Principes :</p>
@@ -120,7 +121,7 @@ Install libraries
 * <details><summary><strong> Maquette Google Sketchup :</strong></summary> <br> ▪ Méthode Employée : Maquette 3D sur logiciel Sketchup <br> ▪ Lien : https://app.sketchup.com/share/tc/europe/1_Btm9EXOVA?source=web&stoken=UgGIBwFQeMK_y7TfFzfkmEnLTFg2cDbj6zdHrLS0E0Jew6M8zhHpEPFG9Bc530nx <br> ▪ Image : <img width="3440" height="1279" alt="Serre connectée" src="https://github.com/user-attachments/assets/f79b6f68-d238-4371-9158-67b41635abb3" /> 
   </details>
 
-
+## <p align="center">📷Galerie de démonstration :</p>
 
 ## <p align="center">Licence :</p> 
 
