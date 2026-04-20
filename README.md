@@ -15,7 +15,7 @@
 ## 📖 Sommaire
 1. [🌠 Les Principes](#les-principes-)
 2. [Le Matériel Requis 🧰](#le-matériel-requis-)
-3. [L'installation ⚙️](#l-installation-)
+3. [L'installation ⚙️](#linstallation-)
 4. [Les Avancées 📈](#les-avancées-)
 5. [La Conception ✏️](#la-conception-)
 6. [Galerie de démonstration 📷](#galerie-de-démonstration-)
@@ -75,7 +75,7 @@
 
 <br>
 
-## <p align="center">⚙️L'installation :</p> 
+## <p align="center">L'installation :</p> 
 
 * **USB Driver :** <br>
 The board is using CH340C chip for USB. You may need to install the driver to use the board: https://sparks.gogo.co.nz/ch340.html
