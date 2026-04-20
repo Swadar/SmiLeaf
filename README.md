@@ -101,6 +101,8 @@ Install libraries
 # <p align="center">La Conception ✏️:</p> 
 * <details><summary><strong> Première maquette :</strong></summary> <br> ▪ Méthode Employée : Dessin sur freeform <br> ▪ Schéma : <img width="1320" height="1639" alt="IMG_8903" src="https://github.com/user-attachments/assets/7f525a27-3afb-4dd6-98c8-877626cdb20e" /> 
   </details>
+* <details><summary><strong> Deuxième maquette :</strong></summary> <br> ▪ Méthode Employée : Dessin sur freeform <br> ▪ Schéma : <img width="660" height="714" alt="Maquette 2" src="https://github.com/user-attachments/assets/6575dfff-a0db-4601-94e5-a5b520b79ee5" />
+  </details>
 * <details><summary><strong> Maquette Google Sketchup :</strong></summary> <br> ▪ Méthode Employée : Maquette 3D sur logiciel Sketchup <br> ▪ Lien : https://app.sketchup.com/share/tc/europe/1_Btm9EXOVA?source=web&stoken=UgGIBwFQeMK_y7TfFzfkmEnLTFg2cDbj6zdHrLS0E0Jew6M8zhHpEPFG9Bc530nx <br> ▪ Image : <img width="3440" height="1279" alt="Serre connectée" src="https://github.com/user-attachments/assets/f79b6f68-d238-4371-9158-67b41635abb3" /> 
   </details>
 
