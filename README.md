@@ -14,7 +14,7 @@
 
 ## 📖 Sommaire
 1. [🌠 Les Principes](#les-principes-)
-2. [Le Matériel Requis 🧰](#le-materiel-requis-)
+2. [Le Matériel Requis 🧰](#le-materiel-)
 3. [L'installation ⚙️](#linstallation-)
 4. [Les Avancées 📈](#les-avancées-)
 5. [La Conception ✏️](#la-conception-)
@@ -33,7 +33,7 @@
 
 <br>
 
-## Le Materiel Requis  :
+## Le Materiel :
 
 * **Carte Arduino UCA (fabriquée par RFThings) incluant :**
     * <details>
