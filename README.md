@@ -15,7 +15,7 @@
 ## 📖 Sommaire
 1. [🌠 Les Principes](#les-principes-)
 2. [Le Matériel Requis 🧰](#le-matériel-requis-)
-3. [L'installation ⚙️](#l'installation-)
+3. [L'installation ⚙️](#l-installation-)
 4. [Les Avancées 📈](#les-avancées-)
 5. [La Conception ✏️](#la-conception-)
 6. [Galerie de démonstration 📷](#galerie-de-démonstration-)
