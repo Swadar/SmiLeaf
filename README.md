@@ -90,7 +90,7 @@ Install libraries
 | Phototropisme artificiel | Kamal Nicolas | 📈 | 25% |
 | Régulation thermique | Kamal Nicolas | 📈 | 25% |
 | Interface émotionnelle | Nouhai Esteban | ✅ | 100% |
-| Conception physique | Nouhai | 📈 | 25% |
+| Conception physique | Nouhai | 📈 | 50% |
 | Page Github | Esteban | 📈 | 75% |
 | Préparation orale | Nouhai Esteban Nico Kamal | ⌚ | 0% |
 
