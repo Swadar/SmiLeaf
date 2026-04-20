@@ -33,7 +33,7 @@
 
 <br>
 
-## Le Matériel Requis :
+## 🧰Le Matériel Requis :
 
 * **Carte Arduino UCA (fabriquée par RFThings) incluant :**
     * <details>
