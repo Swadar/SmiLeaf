@@ -123,7 +123,7 @@ Install libraries
 
 ## <p align="center">📷Galerie de démonstration :</p>
 
-## <p align="center">⚖️Licence :</p> 
+## <p align="center">Licence :</p> 
 
 Ce projet est sous licence **MIT**. Vous pouvez consulter le fichier [LICENSE](LICENSE) pour plus de détails.
 
