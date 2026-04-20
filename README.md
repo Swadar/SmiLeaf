@@ -19,7 +19,8 @@
 3. [L'installation ⚙️](#linstallation-)
 4. [Les Avancées 📈](#les-avancées-)
 5. [La Conception ✏️](#la-conception-)
-6. [Licence](#licence-)
+6. [Galerie de démonstration 📷](#galerie-de-démonstration-)
+7. [Licence](#licence-)
 ---
 
 ## <p align="center">🌠Les Principes :</p>
