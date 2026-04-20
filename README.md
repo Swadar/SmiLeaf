@@ -13,7 +13,7 @@
 <br>
 
 ## 📖 Sommaire
-1. [Description du projet](#description-du-projet)
+1. [🌠Les Principes :](#les-principes:)
 2. [Composants et Capteurs](#composants-et-capteurs)
 3. [Schéma de câblage](#schéma-de-câblage)
 4. [Tableau d'avancement](#tableau-davancement)
