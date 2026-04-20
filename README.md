@@ -13,11 +13,11 @@
 <br>
 
 ## 📖 Sommaire
-1. [🌠Les Principes](#les-principes)
-2. [Le Matériel Requis 🧰](#le-materiel-requis)
-3. [L'installation ⚙️](#l'installation)
-4. [Les Avancées 📈 ](#les-avancees)
-5. [Licence](#licence)
+1. [🌠Les Principes](#les-principes-)
+2. [Le Matériel Requis 🧰](#le-materiel-requis-)
+3. [L'installation ⚙️](#linstallation-)
+4. [Les Avancées 📈 ](#les-avancees-)
+5. [Licence](#licence-)
 
 ---
 
