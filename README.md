@@ -102,15 +102,15 @@ Install libraries
 
 ## <p align="center">📈Les Avancées :</p> 
 
-| **Etapes** | **Contributeurs** | **Etat** | **Etat en %** |
+| **Etapes** | **Contributeurs** | **Etat : 🔴 (Pas commencé), 🟡 (En cours), 🟢 (Terminé)** | **Etat en %** |
 | :--- | :--- | :---: | :---: |
-| Arrosage intelligent | Nouhai Esteban | 📈 | 50% |
-| Phototropisme artificiel | Kamal Nicolas | 📈 | 25% |
-| Régulation thermique | Kamal Nicolas | 📈 | 25% |
-| Interface émotionnelle | Nouhai Esteban | ✅ | 100% |
-| Conception physique | Nouhai | 📈 | 50% |
-| Page Github | Esteban | 📈 | 75% |
-| Préparation orale | Nouhai Esteban Nico Kamal | ⌚ | 0% |
+| Arrosage intelligent | Nouhai Esteban | 🟡 | 50% |
+| Phototropisme artificiel | Kamal Nicolas | 🟡 | 25% |
+| Régulation thermique | Kamal Nicolas | 🟡 | 25% |
+| Interface émotionnelle | Nouhai Esteban | 🟢 | 100% |
+| Conception physique | Nouhai | 🟡 | 50% |
+| Page Github | Esteban | 🟡 | 75% |
+| Préparation orale | Nouhai Esteban Nico Kamal | 🔴 | 0% |
 
 ## <p align="center">✏️La Conception :</p> 
 * <details><summary><strong> Première maquette :</strong></summary> <br> ▪ Méthode Employée : Dessin sur freeform <br> ▪ Schéma : <img width="1320" height="1639" alt="IMG_8903" src="https://github.com/user-attachments/assets/7f525a27-3afb-4dd6-98c8-877626cdb20e" /> 
