@@ -97,7 +97,7 @@ The board is using CH340C chip for USB. You may need to install the driver to us
 * **Libraries :** <br>
 Install libraries 
  ```
- pi install https://github.com/Swadar/SmiLeaf
+ git clone https://github.com/Swadar/SmiLeaf.git
  ```
 
 ## <p align="center">📈Les Avancées :</p> 
