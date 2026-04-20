@@ -1,3 +1,7 @@
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+
 # <p align="center">  🍀 SmiLeaf 🍀</p>
 
 <img width="1280" height="720" alt="SmiLeaf" src="https://github.com/user-attachments/assets/0da974f6-0666-44fc-af05-1d88e940991f" />
