@@ -123,11 +123,15 @@ Install libraries
 
 ## <p align="center">📷Galerie de démonstration :</p>
 
-## <p align="center">Licence :</p> 
+## <p align="center">⚖️Licence :</p> 
 
-Le projet est réalisé dans le cadre de l'UE de communication sans fil du spatial au terrestre. 
-<br> 
-<img width="1287" height="800" alt="UCA_logo" src="https://github.com/user-attachments/assets/fe5291f9-ba6a-4fd3-a2ac-a5b69e7b7557" />
+Ce projet est sous licence **MIT**. Vous pouvez consulter le fichier [LICENSE](LICENSE) pour plus de détails.
+
+Le projet est réalisé dans le cadre de l'UE de communication sans fil du spatial au terrestre à l'**Université Côte d'Azur**.
+
+<p align="center">
+  <img width="600" alt="UCA_logo" src="https://github.com/user-attachments/assets/fe5291f9-ba6a-4fd3-a2ac-a5b69e7b7557" />
+</p>
 
 ## 👤 Contributeurs
 * **Esteban** - [@Swadar](https://github.com/Swadar)
