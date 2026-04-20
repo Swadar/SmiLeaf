@@ -100,7 +100,7 @@ Install libraries
  pi install https://github.com/Swadar/SmiLeaf
  ```
 
-## <p align="center">📈 Les Avancées  :</p> 
+## <p align="center">📈Les Avancées :</p> 
 
 | **Etapes** | **Contributeurs** | **Etat** | **Etat en %** |
 | :--- | :--- | :---: | :---: |
