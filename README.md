@@ -134,8 +134,8 @@ Le projet est réalisé dans le cadre de l'UE de communication sans fil du spati
 </p>
 
 ## 👤 Contributeurs
-| [@Swadar](https://github.com/Swadar) | [@PseudoAmi1](https://github.com/...) | [@PseudoAmi2](https://github.com/...) | jjjkjkj |
+| [@Swadar](https://github.com/Swadar) | [@PseudoAmi1](https://[github.com/...)](https://github.com/kamalsadakafeno-eng) | [@PseudoAmi2](https://github.com/...) | jjjkjkj |
 | :---: | :---: | :---: | :---: |
-| **Esteban** | **Nicolas** | **Nouhai | Kamal** |
+| **Esteban** | **Kamal** | **Nouhai** | **Nicolas** |
 
 
