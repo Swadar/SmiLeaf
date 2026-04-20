@@ -53,6 +53,11 @@
   </details>
 <img width="100" height="100" alt="Ecran led" src="https://github.com/user-attachments/assets/793c50ce-27ca-4245-911d-579b8be72625" />
 
+* <details>
+    <summary><strong>Pompe péristalrique ->  Kamoer NKP </strong></summary><br> ▪ Couleur : bleue <br> ▪ Source d'alimentation : DC power supply <br> ▪ Poids de l'article : 97,5 Grammes <br> ▪ Débit maximal : 70 Millilitres par minute <br> ▪ Tension : 12 Volts <br> ▪ [https://passionelectronique.fr/ecran-oled-i2c-arduino/](https://www.amazon.fr/p%C3%A9ristaltique-liquide-aquarium-laboratoire-analytique/dp/B0CHYKS1FZ/ref=asc_df_B0CHYKS1FZ?mcid=500d1304006a338b847f6bdd538a3818&tag=googshopfr-21&linkCode=df0&hvadid=701517366868&hvpos=&hvnetw=g&hvrand=12617936717180452031&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9109562&hvtargid=pla-2324789129714&psc=1&hvocijid=12617936717180452031-B0CHYKS1FZ-&hvexpln=0)
+  </details>
+<img width="461" height="591" alt="pompe " src="https://github.com/user-attachments/assets/56906f39-fdf3-444a-8696-b6ab045e0c10" />
+
 <br>
 
 # <p align="center">L'installation ⚙️:</p> 
