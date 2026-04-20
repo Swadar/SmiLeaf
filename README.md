@@ -28,6 +28,7 @@
         ▪ The SHTC3 is a low-cost, easy to use, highly accurate, digital temperature and humidity sensor.<br>
         ▪ I2C communication built-in your UCA board.<br>
         ▪ The sensor covers a humidity measurement range of 0 to 100 %RH and a temperature measurement range of -40 °C to 125 °C with a typical accuracy of ±2 %RH and ±0.2°C.
+        ▪ Utilité : Mesurer la température et l'humidité dans la serre afin de réguler ces deux paramètres avec une double porte. 
       </details>
     * <details>
         <summary>Capteur de luminosité -> LTR-303A</summary>
@@ -35,22 +36,23 @@
         ▪ The LTR-303ALS-01 is a low voltage I2C digital light sensor in a low cost mount package.<br>
         ▪ I2C communication built-in your UCA board.<br>
         ▪ It provides a linear response over a wide dynamic range from 0.01 lux to 64k lux and is well suited to applications under high ambient brightness.
+        ▪ Utilité : Mesurer la luminosité afin d'orienter une platforme sur laquelle se trouve la serre. 
       </details>
 
 <img width="1422" height="796" alt="board1" src="https://github.com/user-attachments/assets/61d95a37-e045-4c48-8715-7e27f906ec91" />
 
-*  <details> <summary><strong>Capteur d'humidité dans le sol -> MSMS</strong></summary>  <br> ▪ Voltage : 2.5V - 7.0V <br> ▪ Sortie : Analogique (Inversée) <br> ▪ Sonde : Capacitive & Double face  <br> ▪ Extras : Port Grove, LED indicateurs, Mode économie d'énergie <br> ▪ https://www.cytron.io/p-maker-soil-moisture-sensor ▪ Image : <img width="557" height="491" alt="Capteur humidité" src="https://github.com/user-attachments/assets/079f006c-81a5-42b8-b99d-447b00132030" />
+*  <details> <summary><strong>Capteur d'humidité dans le sol -> MSMS</strong></summary>  <br> ▪ Voltage : 2.5V - 7.0V <br> ▪ Sortie : Analogique (Inversée) <br> ▪ Sonde : Capacitive & Double face  <br> ▪ Extras : Port Grove, LED indicateurs, Mode économie d'énergie <br> ▪ https://www.cytron.io/p-maker-soil-moisture-sensor ▪ Utilité : Mesurer l'humidité dans le sol afin d'arroser au moment le plus judicieux. <br> ▪ Image : <img width="557" height="491" alt="Capteur humidité" src="https://github.com/user-attachments/assets/079f006c-81a5-42b8-b99d-447b00132030" />
   </details>
 
-* <details><summary><strong>Servo Moteur -> SG90 9G</strong></summary> <br> ▪ Modulation : Analogique <br> ▪ Force : 4.8V (1.6 kg-cm) <br> ▪ Vitesse : 4.8V (0.1 sec/60°) <br> ▪ Poids : 9g <br> ▪ Dimensions : 23mm x 12.2mm x 29mm <br> ▪ Angle de rotation : 180° <br> ▪ Connectique : Connecteur 3 points <br> ▪ https://boutique.semageek.com/fr/104-micro-servo-tower-pro-sg90-3007447379574.html ▪ Image : <img width="368" height="368" alt="Servo" src="https://github.com/user-attachments/assets/65685276-d9d7-4c74-b270-fe2b25483cfe" />
-  </details>
-
-* <details>
-    <summary><strong>Ecran OLED</strong></summary><br> ▪ Taille : 1.3 inch <br> ▪ Résolution : 128  64 <br> ▪ Couleur d'affichage : Bleu <br> ▪ Driver : SSD1106 <br> ▪ Protocole : I2C communication Protocol <br> ▪ Dimensions du panneau : 34.5 * 23.0 * 1.4 (mm) <br> ▪ Zone active :** 29.42 * 14.7 (mm) <br> ▪ Température de fonctionnement : -30°C ~ 70°C <br> ▪ Compatibilité : Arduino (UNO R3), STM, Raspberry Pi, Beagle Bone Black <br> ▪ https://passionelectronique.fr/ecran-oled-i2c-arduino/ ▪ Image : <img width="100" height="100" alt="Ecran led" src="https://github.com/user-attachments/assets/793c50ce-27ca-4245-911d-579b8be72625" />
+* <details><summary><strong>Servo Moteur -> SG90 9G</strong></summary> <br> ▪ Modulation : Analogique <br> ▪ Force : 4.8V (1.6 kg-cm) <br> ▪ Vitesse : 4.8V (0.1 sec/60°) <br> ▪ Poids : 9g <br> ▪ Dimensions : 23mm x 12.2mm x 29mm <br> ▪ Angle de rotation : 180° <br> ▪ Connectique : Connecteur 3 points <br> ▪ Utilité : double utilité, orienter la serre ainsi que d'ouvrir des fenêtre pour réguler la température et l'humidité. <br> ▪ https://boutique.semageek.com/fr/104-micro-servo-tower-pro-sg90-3007447379574.html ▪ Image : <img width="368" height="368" alt="Servo" src="https://github.com/user-attachments/assets/65685276-d9d7-4c74-b270-fe2b25483cfe" />
   </details>
 
 * <details>
-    <summary><strong>Pompe péristalrique ->  Kamoer NKP </strong></summary><br> ▪ Couleur : bleue <br> ▪ Source d'alimentation : DC power supply <br> ▪ Poids de l'article : 97,5 Grammes <br> ▪ Débit maximal : 70 Millilitres par minute <br> ▪ Tension : 12 Volts <br> ▪https://www.amazon.fr/p%C3%A9ristaltique-liquide-aquarium-laboratoire-analytique/dp/B0CHYKS1FZ/ref=asc_df_B0CHYKS1FZ?mcid=500d1304006a338b847f6bdd538a3818&tag=googshopfr-21&linkCode=df0&hvadid=701517366868&hvpos=&hvnetw=g&hvrand=12617936717180452031&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9109562&hvtargid=pla-2324789129714&psc=1&hvocijid=12617936717180452031-B0CHYKS1FZ-&hvexpln=0 ▪ Image : <img width="461" height="591" alt="pompe " src="https://github.com/user-attachments/assets/56906f39-fdf3-444a-8696-b6ab045e0c10" />
+    <summary><strong>Ecran OLED</strong></summary><br> ▪ Taille : 1.3 inch <br> ▪ Résolution : 128  64 <br> ▪ Couleur d'affichage : Bleu <br> ▪ Driver : SSD1106 <br> ▪ Protocole : I2C communication Protocol <br> ▪ Dimensions du panneau : 34.5 * 23.0 * 1.4 (mm) <br> ▪ Zone active :** 29.42 * 14.7 (mm) <br> ▪ Température de fonctionnement : -30°C ~ 70°C <br> ▪ Compatibilité : Arduino (UNO R3), STM, Raspberry Pi, Beagle Bone Black <br> ▪ Utilité : Afficher les paramètres liés à la serre ainsi que d'afficher l'état de la plante. <br> ▪ https://passionelectronique.fr/ecran-oled-i2c-arduino/ ▪ Image : <img width="100" height="100" alt="Ecran led" src="https://github.com/user-attachments/assets/793c50ce-27ca-4245-911d-579b8be72625" />
+  </details>
+
+* <details>
+    <summary><strong>Pompe péristalrique ->  Kamoer NKP </strong></summary><br> ▪ Couleur : bleue <br> ▪ Source d'alimentation : DC power supply <br> ▪ Poids de l'article : 97,5 Grammes <br> ▪ Débit maximal : 70 Millilitres par minute <br> ▪ Tension : 12 Volts <br> ▪ Utilité : Arroser la plante. <br> ▪https://www.amazon.fr/p%C3%A9ristaltique-liquide-aquarium-laboratoire-analytique/dp/B0CHYKS1FZ/ref=asc_df_B0CHYKS1FZ?mcid=500d1304006a338b847f6bdd538a3818&tag=googshopfr-21&linkCode=df0&hvadid=701517366868&hvpos=&hvnetw=g&hvrand=12617936717180452031&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9109562&hvtargid=pla-2324789129714&psc=1&hvocijid=12617936717180452031-B0CHYKS1FZ-&hvexpln=0 ▪ Image : <img width="461" height="591" alt="pompe " src="https://github.com/user-attachments/assets/56906f39-fdf3-444a-8696-b6ab045e0c10" />
   </details>
 
 
