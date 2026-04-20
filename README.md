@@ -13,12 +13,11 @@
 <br>
 
 ## 📖 Sommaire
-1. [🌠Les Principes :](#les-principes)
-2. [Composants et Capteurs](#composants-et-capteurs)
-3. [Schéma de câblage](#schéma-de-câblage)
-4. [Tableau d'avancement](#tableau-davancement)
-5. [Installation et Utilisation](#installation-et-utilisation)
-6. [Contributeurs](#contributeurs)
+1. [🌠Les Principes](#les-principes)
+2. [Le Matériel Requis 🧰](#le-materiel-requis)
+3. [L'installation ⚙️](#l'installation)
+4. [Les Avancées 📈 ](#les-avancees)
+5. [Licence](#licence)
 
 ---
 
