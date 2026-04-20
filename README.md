@@ -28,6 +28,7 @@
         ▪ The SHTC3 is a low-cost, easy to use, highly accurate, digital temperature and humidity sensor.<br>
         ▪ I2C communication built-in your UCA board.<br>
         ▪ The sensor covers a humidity measurement range of 0 to 100 %RH and a temperature measurement range of -40 °C to 125 °C with a typical accuracy of ±2 %RH and ±0.2°C.
+       <br>
         ▪ Utilité : Mesurer la température et l'humidité dans la serre afin de réguler ces deux paramètres avec une double porte. 
       </details>
     * <details>
@@ -36,6 +37,7 @@
         ▪ The LTR-303ALS-01 is a low voltage I2C digital light sensor in a low cost mount package.<br>
         ▪ I2C communication built-in your UCA board.<br>
         ▪ It provides a linear response over a wide dynamic range from 0.01 lux to 64k lux and is well suited to applications under high ambient brightness.
+       <br>
         ▪ Utilité : Mesurer la luminosité afin d'orienter une platforme sur laquelle se trouve la serre. 
       </details>
 
