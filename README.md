@@ -113,7 +113,7 @@ Install libraries
 | Page Github | Esteban | 🟡 | 75% |
 | Préparation orale | Nouhai Esteban Nico Kamal | 🔴 | 0% |
 
-## <p align="center">✏️La Conception :</p> 
+## <p align="center">La Conception :✏️</p> 
 * <details><summary><strong> Première maquette :</strong></summary> <br> ▪ Méthode Employée : Dessin sur freeform <br> ▪ Schéma : <img width="1320" height="1639" alt="IMG_8903" src="https://github.com/user-attachments/assets/7f525a27-3afb-4dd6-98c8-877626cdb20e" /> 
   </details>
 * <details><summary><strong> Deuxième maquette :</strong></summary> <br> ▪ Méthode Employée : Dessin sur freeform <br> ▪ Schéma : <img width="660" height="714" alt="Maquette 2" src="https://github.com/user-attachments/assets/6575dfff-a0db-4601-94e5-a5b520b79ee5" />
