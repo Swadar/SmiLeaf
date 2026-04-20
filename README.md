@@ -4,7 +4,6 @@
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Status](https://img.shields.io/badge/Statut-En%20D%C3%A9veloppement-orange?style=for-the-badge)
 
-
 # <p align="center">  🍀 SmiLeaf 🍀</p>
 
 <img width="1280" height="720" alt="SmiLeaf" src="https://github.com/user-attachments/assets/0da974f6-0666-44fc-af05-1d88e940991f" />
