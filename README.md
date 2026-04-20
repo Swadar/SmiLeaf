@@ -33,7 +33,7 @@
 
 <br>
 
-## Le Materiel :
+## Le Matériel :
 
 * **Carte Arduino UCA (fabriquée par RFThings) incluant :**
     * <details>
