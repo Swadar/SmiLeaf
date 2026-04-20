@@ -69,7 +69,7 @@
   </details>
 
 * <details>
-    <summary><strong>🚿 Pompe péristalrique ->  Kamoer NKP </strong></summary><br> ▪ Couleur : bleue <br> ▪ Source d'alimentation : DC power supply <br> ▪ Poids de l'article : 97,5 Grammes <br> ▪ Débit maximal : 70 Millilitres par minute <br> ▪ Tension : 12 Volts <br> ▪ Utilité : Arroser la plante. <br> ▪ [Pompe péristaltique Kamoer NKP 12V - Amazon](https://www.amazon.fr/dp/B0CHYKS1FZ) <br> ▪ Image : <img width="461" height="300" alt="pompe " src="https://github.com/user-attachments/assets/56906f39-fdf3-444a-8696-b6ab045e0c10" />
+    <summary><strong>🚿 Pompe péristalrique ->  Kamoer NKP </strong></summary><br> ▪ Couleur : bleue <br> ▪ Source d'alimentation : DC power supply <br> ▪ Poids de l'article : 97,5 Grammes <br> ▪ Débit maximal : 70 Millilitres par minute <br> ▪ Tension : 12 Volts <br> ▪ Utilité : Arroser la plante. <br> ▪  https://www.amazon.fr/dp/B0CHYKS1FZ <br> ▪ Image : <img width="461" height="300" alt="pompe " src="https://github.com/user-attachments/assets/56906f39-fdf3-444a-8696-b6ab045e0c10" />
   </details>
 
 
