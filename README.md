@@ -2,6 +2,7 @@
 ![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Status](https://img.shields.io/badge/Statut-En%20D%C3%A9veloppement-orange?style=for-the-badge)
+![License](https://img.shields.io/github/license/Swadar/SmiLeaf?style=for-the-badge)
 
 # <p align="center">  🍀 SmiLeaf 🍀</p>
 
