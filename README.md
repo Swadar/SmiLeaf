@@ -129,4 +129,10 @@ Le projet est réalisé dans le cadre de l'UE de communication sans fil du spati
 <br> 
 <img width="1287" height="800" alt="UCA_logo" src="https://github.com/user-attachments/assets/fe5291f9-ba6a-4fd3-a2ac-a5b69e7b7557" />
 
+## 👤 Contributeurs
+* **Esteban** - [@Swadar](https://github.com/Swadar)
+* **Nicolas** -
+* **Nouhai**  -
+* **Kamal**   -  
+
 
