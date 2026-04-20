@@ -14,9 +14,9 @@
 
 ## 📖 Sommaire
 1. [🌠Les Principes](#les-principes-)
-2. [Le Matériel Requis 🧰](#le-materiel-requis-)
+2. [Le Matériel Requis 🧰](#le-matériel-requis-)
 3. [L'installation ⚙️](#linstallation-)
-4. [Les Avancées 📈 ](#les-avancees-)
+4. [Les Avancées 📈 ](#les-avancées-)
 5. [Licence](#licence-)
 
 ---
