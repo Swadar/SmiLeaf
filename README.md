@@ -94,6 +94,9 @@ Install libraries
 | Préparation orale | Nouhai Esteban Nico Kamal | ⌚ | 0% |
 
 # <p align="center">La Conception ✏️:</p> 
+Première maquette : 
+<img width="1320" height="1639" alt="IMG_8903" src="https://github.com/user-attachments/assets/7f525a27-3afb-4dd6-98c8-877626cdb20e" />
+
 
 # <p align="center">Licence :</p> 
 
