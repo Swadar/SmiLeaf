@@ -135,7 +135,7 @@ Le projet est réalisé dans le cadre de l'UE de communication sans fil du spati
 </p>
 
 ## 👤 Contributeurs
-| [@Swadar](https://github.com/Swadar) | [@kamalsadakafeno-eng](https://github.com/kamalsadakafeno-en) | [@nouhaibtk](https://github.com/nouhaibtk) | jjjkjkj |
+| [@Swadar](https://github.com/Swadar) | [@kamalsadakafeno-eng](https://github.com/kamalsadakafeno-en) | [@nouhaibtk](https://github.com/nouhaibtk) | [nestebangarcia04-spec](https://github.com/nestebangarcia04-spec) |
 | :---: | :---: | :---: | :---: |
 | **Esteban** | **Kamal** | **Nouhai** | **Nicolas** |
 
