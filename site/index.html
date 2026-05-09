@@ -17,7 +17,7 @@
     <h1>SmiLeaf Dashboard</h1>
     
     <!-- L'interface émotionnelle -->
-    <img id="radis-img" src="sourire.png" alt="Statut du radis">
+    <img id="radis-img" src="sourire.jfif" alt="Statut du radis">
     <p id="message">Connexion en cours...</p>
 
     <!-- Les données réelles -->
@@ -61,15 +61,15 @@
             const msg = document.getElementById("message");
 
             if (data.soil_volt > 2.1) {
-                img.src = "triste.png";
+                img.src = "triste.jfif";
                 msg.innerText = "Vite ! J'ai soif !";
                 msg.style.color = "red";
             } else if (data.soil_volt > 1.8) {
-                img.src = "neutre.png";
+                img.src = "neutre.jfif";
                 msg.innerText = "Un peu d'eau ?";
                 msg.style.color = "orange";
             } else {
-                img.src = "sourire.png";
+                img.src = "sourire.jfif";
                 msg.innerText = "Je suis au top !";
                 msg.style.color = "#2e7d32";
             }
