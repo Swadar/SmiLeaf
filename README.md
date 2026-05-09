@@ -4,7 +4,6 @@
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Status](https://img.shields.io/badge/Statut-En%20D%C3%A9veloppement-orange?style=for-the-badge)
 
-
 # <p align="center">  🍀 SmiLeaf 🍀</p>
 
 <img width="1280" height="720" alt="SmiLeaf" src="https://github.com/user-attachments/assets/0da974f6-0666-44fc-af05-1d88e940991f" />
@@ -136,7 +135,7 @@ Le projet est réalisé dans le cadre de l'UE de communication sans fil du spati
 </p>
 
 ## 👤 Contributeurs
-| [@Swadar](https://github.com/Swadar) | [@kamalsadakafeno-eng](https://github.com/kamalsadakafeno-en) | [@PseudoAmi2](https://github.com/...) | jjjkjkj |
+| [@Swadar](https://github.com/Swadar) | [@kamalsadakafeno-eng](https://github.com/kamalsadakafeno-en) | [@nouhaibtk](https://github.com/nouhaibtk) | [nestebangarcia04-spec](https://github.com/nestebangarcia04-spec) |
 | :---: | :---: | :---: | :---: |
 | **Esteban** | **Kamal** | **Nouhai** | **Nicolas** |
 

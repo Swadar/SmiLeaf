@@ -19,6 +19,9 @@ unsigned char gain = 0;
 unsigned char integrationTime = 0; 
 unsigned char measurementRate = 3; 
 
+// --- Variable arrosage --- 
+const float SEUIL_ARROSAGE = 2.1; // Seuil à partir duquel le radis a soif;
+
 // --- Variables de gestion du temps ---
 unsigned long previousMillis = 0;
 const long interval = 5000; // 5 secondes
