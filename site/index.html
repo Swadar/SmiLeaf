@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>SmiLeaf - Serre Connectée</title>
+    <!-- On charge la bibliothèque MQTT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f0f8f0; }
+        #radis-img { width: 200px; margin-top: 50px; }
+        .data-card { background: white; border-radius: 15px; padding: 20px; display: inline-block; margin: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        #message { font-weight: bold; font-size: 1.2em; color: #2e7d32; }
+    </style>
+</head>
+<body>
+
+    <h1>SmiLeaf Dashboard</h1>
+    
+    <!-- L'interface émotionnelle -->
+    <img id="radis-img" src="sourire.png" alt="Statut du radis">
+    <p id="message">Connexion en cours...</p>
+
+    <!-- Les données réelles -->
+    <div class="data-card">
+        <h3>Température</h3>
+        <p id="temp">-- °C</p>
+    </div>
+    <div class="data-card">
+        <h3>Luminosité</h3>
+        <p id="lux">-- Lux</p>
+    </div>
+    <div class="data-card">
+        <h3>Sol</h3>
+        <p id="soil">-- V</p>
+    </div>
+
+    <script>
+        // --- CONFIGURATION TTN ---
+        const broker = "eu1.cloud.thethings.network";
+        const port = 8884; // Port WSS (WebSocket sécurisé)
+        const clientID = "web_client_" + Math.random().toString(16).substr(2, 8);
+        const username = "projet-serre-uca21@ttn";
+        const password = "NNSXS.353AIG3RP3DHJFNW5SZQLFF4PB64QVQ2JWMUTVA.2UT6PJUEDBJ5OAJTDNW7SFUCV7KCVMOCWN6NKDLHFG3VKFL6YRSQ"; // Remplace par ta clé NNSXS...
+        const topic = "v3/projet-serre-uca21@ttn/devices/smileaf/up";
+
+        const client = new Paho.MQTT.Client(broker, port, clientID);
+
+        client.onConnectionLost = (responseObject) => { console.log("Perte de connexion"); };
+
+        client.onMessageArrived = (message) => {
+            const json = JSON.parse(message.payloadString);
+            const data = json.uplink_message.decoded_payload;
+
+            // Mise à jour des chiffres
+            document.getElementById("temp").innerText = data.temperature + " °C";
+            document.getElementById("lux").innerText = data.lux + " Lux";
+            document.getElementById("soil").innerText = data.soil_volt + " V";
+
+            // Logique émotionnelle
+            const img = document.getElementById("radis-img");
+            const msg = document.getElementById("message");
+
+            if (data.soil_volt > 2.1) {
+                img.src = "triste.png";
+                msg.innerText = "Vite ! J'ai soif !";
+                msg.style.color = "red";
+            } else if (data.soil_volt > 1.8) {
+                img.src = "neutre.png";
+                msg.innerText = "Un peu d'eau ?";
+                msg.style.color = "orange";
+            } else {
+                img.src = "sourire.png";
+                msg.innerText = "Je suis au top !";
+                msg.style.color = "#2e7d32";
+            }
+        };
+
+        client.connect({
+            onSuccess: () => {
+                console.log("Connecté !");
+                client.subscribe(topic);
+                document.getElementById("message").innerText = "Connecté à la serre";
+            },
+            userName: username,
+            password: password,
+            useSSL: true
+        });
+    </script>
+</body>
+</html>
