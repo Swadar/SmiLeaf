@@ -2,84 +2,172 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmiLeaf - Serre Connectée</title>
-    <!-- On charge la bibliothèque MQTT -->
+    
+    <!-- Bibliothèques : MQTT + Icônes FontAwesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { font-family: sans-serif; text-align: center; background: #f0f8f0; }
-        #radis-img { width: 200px; margin-top: 50px; }
-        .data-card { background: white; border-radius: 15px; padding: 20px; display: inline-block; margin: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        #message { font-weight: bold; font-size: 1.2em; color: #2e7d32; }
+        :root {
+            --primary: #2e7d32;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--bg); 
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            color: white;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        #radis-container {
+            background: var(--white);
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border: 5px solid white;
+        }
+
+        #radis-img { width: 140px; border-radius: 50%; }
+
+        #status-box {
+            background: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        #message { font-weight: 600; font-size: 1.1em; margin: 0; }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .data-card { 
+            background: var(--white); 
+            border-radius: 20px; 
+            padding: 20px; 
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .data-card:hover { transform: translateY(-5px); }
+
+        .data-card i { font-size: 2em; margin-bottom: 10px; color: var(--primary); }
+
+        .data-card h3 { font-size: 0.9em; text-transform: uppercase; color: #888; margin: 0; }
+
+        .data-card p { font-size: 1.5em; font-weight: bold; margin: 10px 0 0; color: #333; }
+
+        .dot { height: 10px; width: 10px; background-color: #bbb; border-radius: 50%; display: inline-block; margin-right: 10px; }
+        .online { background-color: #4caf50; box-shadow: 0 0 8px #4caf50; }
     </style>
 </head>
 <body>
 
-    <h1>SmiLeaf Dashboard</h1>
+    <header>
+        <h1><i class="fa-solid fa-leaf"></i> SmiLeaf</h1>
+    </header>
     
-    <!-- L'interface émotionnelle -->
-    <img id="radis-img" src="sourire.jfif" alt="Statut du radis">
-    <p id="message">Connexion en cours...</p>
+    <div id="radis-container">
+        <img id="radis-img" src="sourire.jfif" alt="Statut du radis">
+    </div>
 
-    <!-- Les données réelles -->
-    <div class="data-card">
-        <h3>Température</h3>
-        <p id="temp">-- °C</p>
+    <div id="status-box">
+        <p id="message"><span class="dot" id="status-dot"></span>Connexion...</p>
     </div>
-    <div class="data-card">
-        <h3>Luminosité</h3>
-        <p id="lux">-- Lux</p>
-    </div>
-    <div class="data-card">
-        <h3>Sol</h3>
-        <p id="soil">-- V</p>
+
+    <div class="container">
+        <div class="data-card">
+            <i class="fa-solid fa-temperature-high"></i>
+            <h3>Température</h3>
+            <p id="temp">-- °C</p>
+        </div>
+        <div class="data-card">
+            <i class="fa-solid fa-sun"></i>
+            <h3>Luminosité</h3>
+            <p id="lux">-- Lux</p>
+        </div>
+        <div class="data-card">
+            <i class="fa-solid fa-droplet"></i>
+            <h3>Humidité Sol</h3>
+            <p id="soil">-- V</p>
+        </div>
     </div>
 
     <script>
-        // --- CONFIGURATION TTN ---
         const broker = "eu1.cloud.thethings.network";
-        const port = 8884; // Port WSS (WebSocket sécurisé)
+        const port = 8884;
         const clientID = "web_client_" + Math.random().toString(16).substr(2, 8);
         const username = "projet-serre-uca21@ttn";
-        const password = "NNSXS.353AIG3RP3DHJFNW5SZQLFF4PB64QVQ2JWMUTVA.2UT6PJUEDBJ5OAJTDNW7SFUCV7KCVMOCWN6NKDLHFG3VKFL6YRSQ"; // Remplace par ta clé NNSXS...
+        const password = "NNSXS.353AIG3RP3DHJFNW5SZQLFF4PB64QVQ2JWMUTVA.2UT6PJUEDBJ5OAJTDNW7SFUCV7KCVMOCWN6NKDLHFG3VKFL6YRSQ";
         const topic = "v3/projet-serre-uca21@ttn/devices/smileaf/up";
 
         const client = new Paho.MQTT.Client(broker, port, clientID);
 
-        client.onConnectionLost = (responseObject) => { console.log("Perte de connexion"); };
+        client.onConnectionLost = (responseObject) => { 
+            document.getElementById("status-dot").classList.remove("online");
+            document.getElementById("message").innerText = "Connexion perdue";
+        };
 
         client.onMessageArrived = (message) => {
             const json = JSON.parse(message.payloadString);
             const data = json.uplink_message.decoded_payload;
 
-            // Mise à jour des chiffres
-            document.getElementById("temp").innerText = data.temperature + " °C";
-            document.getElementById("lux").innerText = data.lux + " Lux";
-            document.getElementById("soil").innerText = data.soil_volt + " V";
+            document.getElementById("temp").innerText = data.temperature + "°C";
+            document.getElementById("lux").innerText = data.lux;
+            document.getElementById("soil").innerText = data.soil_volt + "V";
 
-            // Logique émotionnelle
             const img = document.getElementById("radis-img");
             const msg = document.getElementById("message");
 
             if (data.soil_volt > 2.1) {
                 img.src = "triste.jfif";
-                msg.innerText = "Vite ! J'ai soif !";
-                msg.style.color = "red";
+                msg.innerHTML = '<span class="dot online"></span>Vite ! J\'ai soif !';
+                msg.style.color = "#d32f2f";
             } else if (data.soil_volt > 1.8) {
                 img.src = "neutre.jfif";
-                msg.innerText = "Un peu d'eau ?";
-                msg.style.color = "orange";
+                msg.innerHTML = '<span class="dot online"></span>Un peu d'eau ?';
+                msg.style.color = "#ef6c00";
             } else {
                 img.src = "sourire.jfif";
-                msg.innerText = "Je suis au top !";
+                msg.innerHTML = '<span class="dot online"></span>Je suis au top !';
                 msg.style.color = "#2e7d32";
             }
         };
 
         client.connect({
             onSuccess: () => {
-                console.log("Connecté !");
                 client.subscribe(topic);
-                document.getElementById("message").innerText = "Connecté à la serre";
+                document.getElementById("status-dot").classList.add("online");
+                document.getElementById("message").innerHTML = '<span class="dot online"></span>Connecté à la serre';
             },
             userName: username,
             password: password,
