@@ -200,7 +200,7 @@
         const topic = "v3/projet-serre-uca21@ttn/devices/smileaf/up";
         const downlinkTopic = "v3/projet-serre-uca21@ttn/devices/smileaf/down/push";
 
-        const client = new Paho.MQTT.Client(broker, port, clientID);
+        const client = new Paho.MQTT.Client(broker, port,"", clientID);
 
         client.onConnectionLost = (responseObject) => { 
             document.getElementById("status-dot").classList.remove("online");
