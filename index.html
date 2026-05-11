@@ -192,13 +192,13 @@
     </div>
 
     <script>
-        const broker = "eu1.cloud.thethings.network";
-        const port = 443;
+        const broker = "eu1.cloud.thethings.network:8883";
+        const port = 8884;
         const clientID = "web_client_" + Math.random().toString(16).substr(2, 8);
-        const username = "projet-serre-uca21@ttn";
-        const password = "NNSXS.353AIG3RP3DHJFNW5SZQLFF4PB64QVQ2JWMUTVA.2UT6PJUEDBJ5OAJTDNW7SFUCV7KCVMOCWN6NKDLHFG3VKFL6YRSQ";
-        const topic = "v3/projet-serre-uca21@ttn/devices/smileaf/up";
-        const downlinkTopic = "v3/projet-serre-uca21@ttn/devices/smileaf/down/push";
+        const username = "lorawanlab@ttn";
+        const password = "NNSXS.MLKC5TW7W5F3IU4NT7VNRN22THULXW5SVRXCJGA.5YF5AYBQ2RU2FHJQHVKLAE6OWIXBOYARX5YABKXQCKHB2A632DYQ";
+        const topic = "v3/lorawanlab@ttn/devices/smileaf/up";
+        const downlinkTopic = "v3/lorawanlab@ttn/devices/smileaf/down/push";
 
         const client = new Paho.MQTT.Client(broker, port,"", clientID);
 
