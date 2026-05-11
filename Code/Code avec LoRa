@@ -1,152 +1,249 @@
 #include <lmic.h>
+
 #include <hal/hal.h>
+
 #include <SPI.h>
+
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
+
 #include <SHTSensor.h>
+
 #include <LTR303.h>
 
+
+
 // --- Configuration LoRaWAN (ABP) ---
+
 static const u4_t DEVADDR = 0x260BD612;
+
 static const PROGMEM u1_t NWKSKEY[16] = { 0x5A, 0xCF, 0x6F, 0x69, 0xCF, 0x16, 0xAF, 0x23, 0xC3, 0x5F, 0x2C, 0xE1, 0x89, 0xB1, 0x07, 0x4B };
+
 static const u1_t PROGMEM APPSKEY[16] = { 0x1D, 0x83, 0xAB, 0xA2, 0x06, 0x06, 0xC3, 0xA3, 0xAB, 0x54, 0x61, 0x2E, 0xF2, 0x2E, 0x5F, 0x16 };
 
+
+
 void os_getArtEui (u1_t* buf) { }
+
 void os_getDevEui (u1_t* buf) { }
+
 void os_getDevKey (u1_t* buf) { }
 
+
+
 // Pin mapping carte UCA
+
 const lmic_pinmap lmic_pins = {
+
     .nss = 10,
+
     .rxtx = LMIC_UNUSED_PIN,
+
     .rst = 8,
+
     .dio = {6, 6, 6},
+
 };
 
-// --- Configuration Capteurs & Écran ---
-#define LARGEUR_ECRAN 128
-#define HAUTEUR_ECRAN 64
-Adafruit_SSD1306 display(LARGEUR_ECRAN, HAUTEUR_ECRAN, &Wire, -1);
-SHTSensor sht;
-LTR303 light;
-const int soilPin = A0;
-const unsigned TX_INTERVAL = 60; // Envoi toutes les 60s pour la serre
 
-// Variables globales pour stocker les mesures
-float currentTemp = 0;
-double currentLux = 0;
-float currentSoilVolt = 0;
+
+// --- Configuration Capteurs ---
+
+SHTSensor sht;
+
+LTR303 light;
+
+const int soilPin = A0;
+
+const unsigned TX_INTERVAL = 60; // Intervalle d'envoi (60 secondes)
+
+
+
 static osjob_t sendjob;
 
-// Bitmaps Smileys (gardés en mémoire flash)
-static const unsigned char PROGMEM img_sourire[] = { 0x00, 0x7e, 0x00, 0x03, 0xff, 0xc0, 0x0f, 0x81, 0xf0, 0x1e, 0x00, 0x78, 0x38, 0x00, 0x1c, 0x70, 0x00, 0x0e, 0x60, 0x00, 0x06, 0xc0, 0x00, 0x03, 0xc6, 0x00, 0x63, 0xc6, 0x00, 0x63, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x87, 0x00, 0xe1, 0x83, 0x81, 0xc1, 0x81, 0xff, 0x81, 0xc0, 0xff, 0x03, 0x60, 0x00, 0x06, 0x70, 0x00, 0x0e, 0x38, 0x00, 0x1c, 0x1e, 0x00, 0x78, 0x0f, 0x81, 0xf0, 0x03, 0xff, 0xc0, 0x00, 0x7e, 0x00 };
-static const unsigned char PROGMEM img_neutre[]  = { 0x00, 0x7e, 0x00, 0x03, 0xff, 0xc0, 0x0f, 0x81, 0xf0, 0x1e, 0x00, 0x78, 0x38, 0x00, 0x1c, 0x70, 0x00, 0x0e, 0x60, 0x00, 0x06, 0xc0, 0x00, 0x03, 0xc6, 0x00, 0x63, 0xc6, 0x00, 0x63, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x81, 0xff, 0x81, 0xc1, 0xff, 0x83, 0x60, 0x00, 0x06, 0x70, 0x00, 0x0e, 0x38, 0x00, 0x1c, 0x1e, 0x00, 0x78, 0x0f, 0x81, 0xf0, 0x03, 0xff, 0xc0, 0x00, 0x7e, 0x00 };
-static const unsigned char PROGMEM img_triste[]  = { 0x00, 0x7e, 0x00, 0x03, 0xff, 0xc0, 0x0f, 0x81, 0xf0, 0x1e, 0x00, 0x78, 0x38, 0x00, 0x1c, 0x70, 0x00, 0x0e, 0x60, 0x00, 0x06, 0xc0, 0x00, 0x03, 0xc6, 0x00, 0x63, 0xc6, 0x00, 0x63, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x80, 0x00, 0x01, 0x83, 0x81, 0xc1, 0x87, 0x00, 0xe1, 0x8c, 0x00, 0x31, 0xd8, 0x00, 0x1b, 0x60, 0x00, 0x06, 0x70, 0x00, 0x0e, 0x38, 0x00, 0x1c, 0x1e, 0x00, 0x78, 0x0f, 0x81, 0xf0, 0x03, 0xff, 0xc0, 0x00, 0x7e, 0x00 };
+
 
 // --- Fonctions LoRa ---
+
 void onEvent (ev_t ev) {
-    if (ev == EV_TXCOMPLETE) {
-        Serial.println(F("EV_TXCOMPLETE"));
-        os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
+
+    switch(ev) {
+
+        case EV_TXCOMPLETE:
+
+            Serial.println(F("EV_TXCOMPLETE (Paquet envoyé)"));
+
+            // Planifie la prochaine transmission
+
+            os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
+
+            break;
+
+        default:
+
+            break;
+
     }
+
 }
+
+
 
 void do_send(osjob_t* j){
-    if (LMIC.opmode & OP_TXRXPEND) {
-        Serial.println(F("OP_TXRXPEND, non envoyé"));
-    } else {
-        // Lecture des capteurs juste avant l'envoi
-        sht.readSample();
-        currentTemp = sht.getTemperature();
-        unsigned int r0, r1;
-        if (light.getData(r0, r1)) light.getLux(0, 0, r0, r1, currentLux);
-        currentSoilVolt = analogRead(soilPin) * (3.3 / 1023.0);
 
-        // Préparation du Payload (5 octets)
+    if (LMIC.opmode & OP_TXRXPEND) {
+
+        Serial.println(F("OP_TXRXPEND, envoi différé..."));
+
+    } else {
+
+        // 1. Lecture des capteurs
+
+        sht.readSample();
+
+        float temp = sht.getTemperature();
+
+        
+
+        unsigned int r0, r1;
+
+        double lux = 0;
+
+        if (light.getData(r0, r1)) light.getLux(0, 0, r0, r1, lux);
+
+        
+
+        float soilVolt = analogRead(soilPin) * (3.3 / 1023.0);
+
+
+
+        // 2. Préparation du Payload (5 octets)
+
+        // [0]: Temp, [1-2]: Lux, [3]: Sol*10, [4]: Alerte
+
         byte payload[5];
-        payload[0] = (int)currentTemp;                   // Temp (ex: 25)
-        uint16_t luxSend = (uint16_t)currentLux; 
-        payload[1] = luxSend >> 8;                       // Lux High Byte
-        payload[2] = luxSend & 0xFF;                     // Lux Low Byte
-        payload[3] = (int)(currentSoilVolt * 10);        // Sol (ex: 2.1V -> 21)
-        payload[4] = (currentSoilVolt > 2.1) ? 0 : 1;    // Alerte (0: Soif, 1: OK)
+
+        payload[0] = (byte)((int)temp);                // Ex: 25
+
+        uint16_t luxSend = (uint16_t)lux; 
+
+        payload[1] = highByte(luxSend);                // Lux Octet Fort
+
+        payload[2] = lowByte(luxSend);                 // Lux Octet Faible
+
+        payload[3] = (byte)((int)(soilVolt * 10));     // Ex: 2.1V -> 21
+
+        payload[4] = (soilVolt > 2.1) ? 0 : 1;         // 0=Sec, 1=OK
+
+
+
+        // 3. Envoi via LMIC
 
         LMIC_setTxData2(1, payload, sizeof(payload), 0);
-        Serial.println(F("Paquet capteurs envoyé vers TTN"));
+
+        
+
+        // Debug serie
+
+        Serial.print(F("Envoi: T=")); Serial.print(temp);
+
+        Serial.print(F(" Lux=")); Serial.print(lux);
+
+        Serial.print(F(" Sol=")); Serial.println(soilVolt);
+
     }
+
 }
+
+
 
 void setup() {
+
     Serial.begin(115200);
+
+    while (!Serial); // Attendre l'ouverture du moniteur série
+
+    Serial.println(F("Initialisation Serre LoRa..."));
+
+
+
     Wire.begin();
+
     
-    // Initialisation Écran et Capteurs
-    if(display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
-        display.clearDisplay();
-        display.display();
-    }
-    sht.init();
-    if (light.begin()) {
-        light.setControl(0, false, true);
-        light.setMeasurementRate(0, 3);
-        light.setPowerUp();
+
+    // Initialisation Capteurs
+
+    if (sht.init()) {
+
+        Serial.println(F("SHT OK"));
+
     }
 
-    // Initialisation LoRa
+    if (light.begin()) {
+
+        light.setControl(0, false, true);
+
+        light.setMeasurementRate(0, 3);
+
+        light.setPowerUp();
+
+        Serial.println(F("LTR303 OK"));
+
+    }
+
+
+
+    // Initialisation LoRa Stack
+
     os_init();
+
     LMIC_reset();
+
     LMIC_setClockError(MAX_CLOCK_ERROR * 2 / 100);
 
+
+
+    // Chargement des clés ABP
+
     uint8_t appskey[sizeof(APPSKEY)];
+
     uint8_t nwkskey[sizeof(NWKSKEY)];
+
     memcpy_P(appskey, APPSKEY, sizeof(APPSKEY));
+
     memcpy_P(nwkskey, NWKSKEY, sizeof(NWKSKEY));
+
     LMIC_setSession (0x1, DEVADDR, nwkskey, appskey);
 
-    // Setup Europe 868MHz
+
+
+    // Configuration Radio Europe
+
     LMIC_setupChannel(0, 868100000, DR_RANGE_MAP(DR_SF12, DR_SF7),  BAND_CENTI);
+
     LMIC_setupChannel(1, 868300000, DR_RANGE_MAP(DR_SF12, DR_SF7B), BAND_CENTI);
+
     LMIC_setupChannel(2, 868500000, DR_RANGE_MAP(DR_SF12, DR_SF7),  BAND_CENTI);
+
+    
+
     LMIC_setLinkCheckMode(0);
+
     LMIC.dn2Dr = DR_SF9;
+
     LMIC_setDrTxpow(DR_SF9, 14);
 
+
+
+    // Premier envoi
+
     do_send(&sendjob);
+
 }
+
+
 
 void loop() {
-    os_runloop_once(); // Gère LoRa
-    updateDisplay();   // Gère l'affichage OLED
-}
 
-// Fonction pour l'affichage sans bloquer LoRa
-void updateDisplay() {
-    static unsigned long lastUpdate = 0;
-    static bool toggle = true;
-    if (millis() - lastUpdate < 3000) return; // Mise à jour écran toutes les 3s
-    lastUpdate = millis();
+    os_runloop_once();
 
-    display.clearDisplay();
-    display.setTextColor(SSD1306_WHITE);
-    
-    if (toggle) {
-        // Mode Smiley
-        const unsigned char* bmp = (currentSoilVolt > 2.1) ? img_triste : (currentSoilVolt > 1.8 ? img_neutre : img_sourire);
-        display.drawBitmap(52, 8, bmp, 24, 24, SSD1306_WHITE);
-        display.setCursor(20, 45);
-        display.print(currentSoilVolt); display.print("V - ");
-        display.print(currentSoilVolt > 2.1 ? "SOIF" : "OK");
-    } else {
-        // Mode Mesures
-        display.setTextSize(1);
-        display.setCursor(0, 0); display.println(F("STATION LORA"));
-        display.drawLine(0, 10, 128, 10, SSD1306_WHITE);
-        display.setCursor(0, 20); display.setTextSize(2);
-        display.print(currentTemp, 1); display.setTextSize(1); display.println(" C");
-        display.setCursor(0, 45); display.setTextSize(2);
-        display.print((int)currentLux); display.setTextSize(1); display.println(" Lux");
-    }
-    display.display();
-    toggle = !toggle;
 }
