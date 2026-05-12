@@ -192,13 +192,21 @@
     </div>
 
     <script>
+        // --- CONFIGURATION NOUVEAU SERVEUR ---
         const broker = "eu1.cloud.thethings.network";
-        const port = 8883;
+        const port = 443; // On garde 443 pour éviter les blocages réseau
         const clientID = "web_client_" + Math.random().toString(16).substr(2, 8);
-        const username = "lorawanlab@ttn";
-        const password = "NNSXS.MLKC5TW7W5F3IU4NT7VNRN22THULXW5SVRXCJGA.5YF5AYBQ2RU2FHJQHVKLAE6OWIXBOYARX5YABKXQCKHB2A632DYQ";
-        const topic = "v3/lorawanlab@ttn/devices/smileaf/up";
-        const downlinkTopic = "v3/lorawanlab@ttn/devices/smileaf/down/push";
+
+        // Username : C'est l'ID de l'application suivi de @ttn
+        const username = "lorawanlab@ttn"; 
+
+        // Password : Tu DOIS en générer un nouveau dans Integrations > MQTT
+        // Ne reprends pas l'ancien, il ne marchera pas sur ce serveur !
+        const password = "NNSXS.TA_NOUVELLE_CLE_GENEREE_SUR_LORAWANLAB"; 
+
+        // Topics : Remplace 'smileaf' par l'ID exact du device sur TTN (smileaf-abp)
+        const topic = "v3/lorawanlab@ttn/devices/smileaf-abp/up";
+        const downlinkTopic = "v3/lorawanlab@ttn/devices/smileaf-abp/down/push";
 
         const client = new Paho.MQTT.Client(broker, port,"", clientID);
 
