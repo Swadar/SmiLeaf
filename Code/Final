@@ -1,0 +1,249 @@
+#include <lmic.h>
+
+#include <hal/hal.h>
+
+#include <SPI.h>
+
+#include <Wire.h>
+
+#include <SHTSensor.h>
+
+#include <LTR303.h>
+
+
+
+// --- Configuration LoRaWAN (ABP) ---
+
+static const u4_t DEVADDR = 0x260BD612;
+
+static const PROGMEM u1_t NWKSKEY[16] = { 0x5A, 0xCF, 0x6F, 0x69, 0xCF, 0x16, 0xAF, 0x23, 0xC3, 0x5F, 0x2C, 0xE1, 0x89, 0xB1, 0x07, 0x4B };
+
+static const u1_t PROGMEM APPSKEY[16] = { 0x1D, 0x83, 0xAB, 0xA2, 0x06, 0x06, 0xC3, 0xA3, 0xAB, 0x54, 0x61, 0x2E, 0xF2, 0x2E, 0x5F, 0x16 };
+
+
+
+void os_getArtEui (u1_t* buf) { }
+
+void os_getDevEui (u1_t* buf) { }
+
+void os_getDevKey (u1_t* buf) { }
+
+
+
+// Pin mapping carte UCA
+
+const lmic_pinmap lmic_pins = {
+
+    .nss = 10,
+
+    .rxtx = LMIC_UNUSED_PIN,
+
+    .rst = 8,
+
+    .dio = {6, 6, 6},
+
+};
+
+
+
+// --- Configuration Capteurs ---
+
+SHTSensor sht;
+
+LTR303 light;
+
+const int soilPin = A0;
+
+const unsigned TX_INTERVAL = 60; // Intervalle d'envoi (60 secondes)
+
+
+
+static osjob_t sendjob;
+
+
+
+// --- Fonctions LoRa ---
+
+void onEvent (ev_t ev) {
+
+    switch(ev) {
+
+        case EV_TXCOMPLETE:
+
+            Serial.println(F("EV_TXCOMPLETE (Paquet envoyé)"));
+
+            // Planifie la prochaine transmission
+
+            os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
+
+            break;
+
+        default:
+
+            break;
+
+    }
+
+}
+
+
+
+void do_send(osjob_t* j){
+
+    if (LMIC.opmode & OP_TXRXPEND) {
+
+        Serial.println(F("OP_TXRXPEND, envoi différé..."));
+
+    } else {
+
+        // 1. Lecture des capteurs
+
+        sht.readSample();
+
+        float temp = sht.getTemperature();
+
+       
+
+        unsigned int r0, r1;
+
+        double lux = 0;
+
+        if (light.getData(r0, r1)) light.getLux(0, 0, r0, r1, lux);
+
+       
+
+        float soilVolt = analogRead(soilPin) * (3.3 / 1023.0);
+
+
+
+        // 2. Préparation du Payload (5 octets)
+
+        // [0]: Temp, [1-2]: Lux, [3]: Sol*10, [4]: Alerte
+
+        byte payload[5];
+
+        payload[0] = (byte)((int)temp);                // Ex: 25
+
+        uint16_t luxSend = (uint16_t)lux;
+
+        payload[1] = highByte(luxSend);                // Lux Octet Fort
+
+        payload[2] = lowByte(luxSend);                 // Lux Octet Faible
+
+        payload[3] = (byte)((int)(soilVolt * 10));     // Ex: 2.1V -> 21
+
+        payload[4] = (soilVolt > 2.1) ? 0 : 1;         // 0=Sec, 1=OK
+
+
+
+        // 3. Envoi via LMIC
+
+        LMIC_setTxData2(1, payload, sizeof(payload), 0);
+
+       
+
+        // Debug serie
+
+        Serial.print(F("Envoi: T=")); Serial.print(temp);
+
+        Serial.print(F(" Lux=")); Serial.print(lux);
+
+        Serial.print(F(" Sol=")); Serial.println(soilVolt);
+
+    }
+
+}
+
+
+
+void setup() {
+
+    Serial.begin(115200);
+
+    while (!Serial); // Attendre l'ouverture du moniteur série
+
+    Serial.println(F("Initialisation Serre LoRa..."));
+
+
+
+    Wire.begin();
+
+   
+
+    // Initialisation Capteurs
+
+    if (sht.init()) {
+
+        Serial.println(F("SHT OK"));
+
+    }
+
+    if (light.begin()) {
+
+        light.setControl(0, false, true);
+
+        light.setMeasurementRate(0, 3);
+
+        light.setPowerUp();
+
+        Serial.println(F("LTR303 OK"));
+
+    }
+
+
+
+    // Initialisation LoRa Stack
+
+    os_init();
+
+    LMIC_reset();
+
+    LMIC_setClockError(MAX_CLOCK_ERROR * 2 / 100);
+
+
+
+    // Chargement des clés ABP
+
+    uint8_t appskey[sizeof(APPSKEY)];
+
+    uint8_t nwkskey[sizeof(NWKSKEY)];
+
+    memcpy_P(appskey, APPSKEY, sizeof(APPSKEY));
+
+    memcpy_P(nwkskey, NWKSKEY, sizeof(NWKSKEY));
+
+    LMIC_setSession (0x1, DEVADDR, nwkskey, appskey);
+
+
+
+    // Configuration Radio Europe
+
+    LMIC_setupChannel(0, 868100000, DR_RANGE_MAP(DR_SF12, DR_SF7),  BAND_CENTI);
+
+    LMIC_setupChannel(1, 868300000, DR_RANGE_MAP(DR_SF12, DR_SF7B), BAND_CENTI);
+
+    LMIC_setupChannel(2, 868500000, DR_RANGE_MAP(DR_SF12, DR_SF7),  BAND_CENTI);
+
+   
+
+    LMIC_setLinkCheckMode(0);
+
+    LMIC.dn2Dr = DR_SF9;
+
+    LMIC_setDrTxpow(DR_SF9, 14);
+
+
+
+    // Premier envoi
+
+    do_send(&sendjob);
+
+}
+
+
+
+void loop() {
+
+    os_runloop_once();
+
+}
